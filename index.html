@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioExplorador: Célula Vegetal Interactiva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="flashlight-reveal" class="flashlight-reveal"></div>
+    <main class="app-container">
+        <!-- Pantalla de Presentación -->
+        <section id="landing-page" class="landing-page">
+            <div class="presentation-card">
+                <header class="presentation-header">
+                    <span class="tag">Proyecto Educativo</span>
+                    <h1 class="main-title">BioExplorador <span class="accent-title">Célula Vegetal</span></h1>
+                    <p class="description">Una representación interactiva y detallada de los componentes fundamentales
+                        de la vida vegetal.</p>
+                </header>
+
+                <div class="presentation-details">
+                    <div class="detail-item">
+                        <span class="label">Institución:</span>
+                        <span class="value">Instituto La Salle Barranquilla</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Grado:</span>
+                        <span class="value">6to D</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Materia:</span>
+                        <span class="value">Biología</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Integrantes:</span>
+                        <span class="value">Zahare Cussa, Melanie Villanueva, Dalay Yanet</span>
+                    </div>
+                </div>
+
+                <button id="enter-btn" class="enter-button">
+                    <span>Explorar Célula</span>
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="background-decoration">
+                <div class="circle cyan"></div>
+                <div class="circle emerald"></div>
+            </div>
+        </section>
+
+        <!-- Interfaz Interactiva (Oculta por defecto) -->
+        <section id="explorer-area" class="explorer-area hidden-ui">
+            <header class="app-header">
+                <h1>BioExplorador <span class="accent">Célula Vegetal</span></h1>
+                <p class="subtitle">Componentes fundamentales<br></p><br>
+                <p class="intro"><br>La célula vegetal es la unidad básica <br>
+                    de los seres vivos que pertenecen al reino vegetal. <br>
+                    Es una célula eucariota que posee un núcleo definido <br>
+                    y estructuras especializadas como la pared celular, <br>
+                    los cloroplastos y la vacuola central. <br>
+                    Estas características le permiten realizar <br>
+                    funciones importantes como la fotosíntesis, <br>
+                    el almacenamiento de sustancias y el mantenimiento <br>
+                    de la estructura de las plantas.</p><br><br>
+
+                <p class="subtitle">Click a -> Componentes<br></p><br>
+
+                <button id="back-to-landing" class="back-button" aria-label="Volver al inicio">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+                    </svg>
+                    <span>Inicio</span>
+                </button>
+            </header>
+            <div class="cell-wrapper" id="cell-wrapper">
+                <img src="celula_vegetal_limpia.png" id="cell-image"
+                    alt="Representación Interactiva de la Célula Vegetal">
+                <svg id="connector-canvas" class="connector-canvas"></svg>
+                <div id="hotspots-container"></div>
+            </div>
+
+            <aside id="info-panel" class="info-panel">
+                <button id="close-info" class="close-button" aria-label="Cerrar panel">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor"
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                    </svg>
+                </button>
+                <div class="panel-header">
+                    <h2 id="organelle-name">Selecciona un componente</h2>
+                    <div class="status-indicator"></div>
+                </div>
+                <div class="panel-body">
+                    <p id="organelle-description">Haz clic en los puntos brillantes de la célula para conocer más sobre
+                        su función y estructura.</p>
+                    <div id="subcomponents-section" class="hidden">
+                        <h3>Subcomponentes</h3>
+                        <div id="subcomponents-list"></div>
+                    </div>
+                    <div id="fun-fact-section" class="hidden">
+                        <div class="fun-fact-card">
+                            <span class="fact-icon">💡</span>
+                            <p id="fun-fact-text"></p>
+                        </div>
+                    </div>
+
+                    <div class="bibliography-section">
+                        <h4>Referencias:</h4>
+                        <p>Biology: A Global Approach (Campbell), Raven Biology of Plants.</p>
+                    </div>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="organelleData.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
